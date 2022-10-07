@@ -4,6 +4,7 @@ Tutorial for getting started studying LLPs at the FCC
 ## What this tutorial will teach you
 
 ## What this tutorial will NOT cover
+- How to generate samples and run pythia8 and Delphes. If you want to do that, you can look [here](https://github.com/jalimena/FCCeePhysicsPerformance/tree/master/case-studies/BSM/LLP/DisplacedHNL/HNL_sample_creation)
 
 
 ## Setup
