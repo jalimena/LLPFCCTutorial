@@ -43,23 +43,6 @@ To run this step, do:
 fccanalysis run analysis_stage1.py
 ```
 
-The output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
-
-## Step 2. Run `analysis_final.py`: Apply selections
-
-This second step will run over your "stage 1" output and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
-
- - **selNone** applies no selection at all
- - **sel2RecoEle** requires exactly two reconstructed electrons
- - **sel2RecoEle_vetoes** requires exactly two reconstructed electrons and vetoes events with any reconstructed jets, muons, or photons
- - **sel2RecoEle_vetoes_MissingEnergyGt10** requires exactly two reconstructed electrons; vetoes events with any reconstructed jets, muons, or photons; and requires the total missing energy to be > 10 GeV
- - **sel2RecoEle_vetoes_MissingEnergyGt10_absD0Gt0p5** requires exactly two reconstructed electrons; vetoes events with any reconstructed jets, muons, or photons; requires the total missing energy to be > 10 GeV; and requires that both reconstructed electrons have |d0|> 0.5 mm
-
-To run this step, do:
-```
-fccanalysis final analysis_final.py
-```
-
 The log output of this step might look something like this:
 ```
 $ fccanalysis run analysis_stage1.py 
@@ -84,7 +67,25 @@ Reduction factor local   :   1.0
 ===================================================================
 ```
 
-The output of this step (histograms) will live in the `output_finalSel/` directory.
+The root file output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
+
+## Step 2. Run `analysis_final.py`: Apply selections
+
+This second step will run over your "stage 1" output and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
+
+ - **selNone** applies no selection at all
+ - **sel2RecoEle** requires exactly two reconstructed electrons
+ - **sel2RecoEle_vetoes** requires exactly two reconstructed electrons and vetoes events with any reconstructed jets, muons, or photons
+ - **sel2RecoEle_vetoes_MissingEnergyGt10** requires exactly two reconstructed electrons; vetoes events with any reconstructed jets, muons, or photons; and requires the total missing energy to be > 10 GeV
+ - **sel2RecoEle_vetoes_MissingEnergyGt10_absD0Gt0p5** requires exactly two reconstructed electrons; vetoes events with any reconstructed jets, muons, or photons; requires the total missing energy to be > 10 GeV; and requires that both reconstructed electrons have |d0|> 0.5 mm
+
+To run this step, do:
+```
+fccanalysis final analysis_final.py
+```
+
+
+The root file output of this step (histograms) will live in the `output_finalSel/` directory.
 
 
 ## Step 3. Run `analysis_plots.py`: Make plots
