@@ -32,12 +32,18 @@ Tutorial for getting started studying long-lived particles (LLPs) at the FCC-ee
 
 This step will run over previously created EDM4hep samples and create root files with TTrees of interesting variables (gen and reco) for the long-lived HNL analysis.
 
+The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py`. Open this file in github or in the terminal with your favorite editor and take a look. Compare what you find there with the general description in the readme file (https://github.com/HEP-FCC/FCCAnalyses). Notice that lines 1-37 contain configuration parameters that you should consider changing for your situation.
+
+**Change the parameters in lines 1-37 of `analysis_stage1.py` such that you run a test job, where you run over a small fraction of the centrally-produced `p8_ee_Zee_ecm91` sample that uses the `spring2021` tag and the `IDEA` detector, and make the output go to a new directory called `output_stage1/`. Run this test locally, i.e. not in batch.**
+
+Notice that the rest of the `analysis_stage1.py` file computes the variables of interest. You can take a look here and see what is going on.
+
 To run this step, do:
 ```
 fccanalysis run analysis_stage1.py
 ```
 
-The output of this step (trees) will live in the `output_stage1/` directory.
+The output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
 
 ## Step 2. Run `analysis_final.py`: Apply selections
 
@@ -52,6 +58,30 @@ This second step will run over your "stage 1" output and apply selections (or cu
 To run this step, do:
 ```
 fccanalysis final analysis_final.py
+```
+
+The log output of this step might look something like this:
+```
+$ fccanalysis run analysis_stage1.py 
+===============args bin  Namespace(command='run', pathToAnalysisScript='analysis_stage1.py', files_list=[], output='output.root', nevents=-1, test=False, bench=False, ncpus=None, preprocess=False, validate=False, rerunfailed=False, jobdir='output.root', eloglevel='kUnset', batch=False)
+Warning in <TInterpreter::ReadRootmapFile>: class  edm4hep::ObjectID found in libedm4hepDict.so  is already in libedm4drDict.so 
+----> Load cxx analyzers from libFCCAnalyses... 
+args in mains code============================== Namespace(command='run', pathToAnalysisScript='analysis_stage1.py', files_list=[], output='output.root', nevents=-1, test=False, bench=False, ncpus=None, preprocess=False, validate=False, rerunfailed=False, jobdir='output.root', eloglevel='kUnset', batch=False)
+--------------loading analysis file   /afs/cern.ch/work/j/jalimena/FCCeeLLP_test/FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py
+The variable <outputDirEos> is optional in your analysis.py file, return default empty string
+----> yaml file /afs/cern.ch/work/f/fccsw/public/FCCDicts/yaml/FCCee/spring2021/IDEA/p8_ee_Zee_ecm91/merge.yaml succesfully opened
+----> Running process p8_ee_Zee_ecm91 with fraction=1e-06, output=p8_ee_Zee_ecm91, chunks=1
+----> Running Locally
+----> Create dataframe object from files: 
+    /eos/experiment/fcc/ee/generation/DelphesEvents/spring2021/IDEA/p8_ee_Zee_ecm91/events_000216632.root
+----> nevents original=0  local=100000
+----> Init done, about to run 100000 events on 4 CPUs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:00:29
+Events Processed/Second  :   3370
+Total Events Processed   :   100000
+Reduction factor local   :   1.0
+===================================================================
 ```
 
 The output of this step (histograms) will live in the `output_finalSel/` directory.
