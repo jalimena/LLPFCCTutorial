@@ -84,6 +84,9 @@ The root file output of this step (trees) will live in the `output_stage1/` dire
   
 </details>
 
+  
+Note that if you wanted to run over all of the background samples used in the long-lived HNL analysis, you would probably need to run in batch and put the output in eos or a similar space.  
+  
 ## Step 2. Run `analysis_final.py`: Apply selections
 
 This second step will run over your "stage 1" output and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
