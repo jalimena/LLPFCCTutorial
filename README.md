@@ -44,10 +44,15 @@ fccanalysis run analysis_stage1.py
 ```
 
 The log output of this step might look something like this:
-```
-$ fccanalysis run analysis_stage1.py 
+
+<details>
+  <summary>Spoiler warning</summary>
+  
+
+  ```
+  $ fccanalysis run analysis_stage1.py 
 ===============args bin  Namespace(command='run', pathToAnalysisScript='analysis_stage1.py', files_list=[], output='output.root', nevents=-1, test=False, bench=False, ncpus=None, preprocess=False, validate=False, rerunfailed=False, jobdir='output.root', eloglevel='kUnset', batch=False)
-Warning in <TInterpreter::ReadRootmapFile>: class  edm4hep::ObjectID found in libedm4hepDict.so  is already in libedm4drDict.so 
+!Warning in <TInterpreter::ReadRootmapFile>: class  edm4hep::ObjectID found in libedm4hepDict.so  is already in libedm4drDict.so 
 ----> Load cxx analyzers from libFCCAnalyses... 
 args in mains code============================== Namespace(command='run', pathToAnalysisScript='analysis_stage1.py', files_list=[], output='output.root', nevents=-1, test=False, bench=False, ncpus=None, preprocess=False, validate=False, rerunfailed=False, jobdir='output.root', eloglevel='kUnset', batch=False)
 --------------loading analysis file   /afs/cern.ch/work/j/jalimena/FCCeeLLP_test/FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py
@@ -66,7 +71,10 @@ Total Events Processed   :   100000
 Reduction factor local   :   1.0
 ===================================================================
 ```
-
+ 
+</details>
+  
+  
 The root file output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
 
 ## Step 2. Run `analysis_final.py`: Apply selections
