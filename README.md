@@ -10,8 +10,13 @@ Tutorial for getting started studying LLPs at the FCC
 ## Setup
 
 1. ssh to lxplus
-2. Check out https://github.com/HEP-FCC/FCCAnalyses, and then follow the Getting started directions explained in the README.
-3. cd to FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/
+2. Do 
+  ```
+  git clone https://github.com/HEP-FCC/FCCAnalyses
+  cd FCCAnalyses/
+  ```, 
+  and then follow the **Getting started** directions explained in the README.
+4. cd to FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/
 
 ## 1. Run `analysis_stage1.py`: Create interesting variables
 
