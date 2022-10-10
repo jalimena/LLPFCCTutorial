@@ -43,10 +43,10 @@ To run this step, do:
 fccanalysis run analysis_stage1.py
 ```
 
-The log output of this step might look something like this:
+
 
 <details>
-  <summary>Spoiler warning</summary>
+  <summary>Click here to see what the log output of this step might look like:</summary>
   
 
   ```
@@ -76,6 +76,13 @@ Reduction factor local   :   1.0
   
   
 The root file output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
+  
+<details>
+  <summary>Click here to see what the root file output of this step might look like:</summary>
+  
+<img width="1043" alt="output_stage1_Zee_TBrowser" src="https://user-images.githubusercontent.com/5177191/194885131-87c059ad-5a64-44b7-be84-a6c44c7da8f9.png">
+  
+</details>
 
 ## Step 2. Run `analysis_final.py`: Apply selections
 
