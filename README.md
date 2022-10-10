@@ -1,10 +1,15 @@
-# LLPFCCTutorial
-Tutorial for getting started studying LLPs at the FCC
+# LLP FCC Tutorial
+Tutorial for getting started studying long-lived particles (LLPs) at the FCC-ee
 
 ## What this tutorial will teach you
 
+- How to run the FCCAnalyses software, using long-lived Heavy Neutral Leptons (HNLs) that decay to electrons and neutrinos as an example
+- In particular, this tutorial is set up to walk you through the major analysis steps, running local jobs on lxplus.
+
 ## What this tutorial will NOT cover
 - How to generate samples and run pythia8 and Delphes. If you want to do that, you can look [here](https://github.com/jalimena/FCCeePhysicsPerformance/tree/master/case-studies/BSM/LLP/DisplacedHNL/HNL_sample_creation)
+- How to run batch jobs and put the output on eos on lxplus. (However, the code to do this is available in the tutorial files. It might require some additional permissions, though.)
+- How to run the code on the Fermilab LPC (because the input samples are not there. In principle you can run at the LPC, but this has not been tested.)
 
 
 ## Step 0. Setup
@@ -62,3 +67,11 @@ fccanalysis plots analysis_plots.py
 ```
 
 The output of this step (plots) will live in the `plots/` directory. Each subdirectory corresponds to the different selections you applied, and each plot will be saved (by default) as a pdf with both a linear and a log y-axis. You can use the `evince` command to look at a pdf on lxplus.
+
+## Additional resources
+
+- LLPs at the FCC-ee (Snowmass white paper): https://arxiv.org/abs/2203.05502
+- Juliette's presentation at the ECFA meeting at DESY (Oct 2022): https://indico.desy.de/event/33640/timetable/?view=standard#97-long-lived-particles-at-the
+- FCC code tutorial: https://hep-fcc.github.io/fcc-tutorials/software-basics/README.html
+- FCC-ee spring2021 samples: https://fcc-physics-events.web.cern.ch/fcc-physics-events/FCCee/spring2021/Delphesevents_IDEA.php
+
