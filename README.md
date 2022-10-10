@@ -3,7 +3,7 @@ Tutorial for getting started studying long-lived particles (LLPs) at the FCC-ee
 
 ## What this tutorial will teach you
 
-- How to run the FCCAnalyses software, using long-lived Heavy Neutral Leptons (HNLs) that decay to electrons and neutrinos as an example
+- How to run the [FCCAnalyses software](https://github.com/HEP-FCC/FCCAnalyses), using long-lived Heavy Neutral Leptons (HNLs) that decay to electrons and neutrinos as an example
 - In particular, this tutorial is set up to walk you through the major analysis steps, running local jobs on lxplus.
 
 ## What this tutorial will NOT cover
