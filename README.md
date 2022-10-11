@@ -1,6 +1,10 @@
 # LLP FCC Tutorial
 Tutorial for getting started studying long-lived particles (LLPs) at the FCC-ee
 
+## Who this tutorial is for
+
+This tutorial is for anyone interested in working with the FCC software. It assumes some basic knowledge of ROOT, C++, linux, and (very basic knowledge of) git. It should be appropriate for beginner Masters and PhD students.
+
 ## What this tutorial will teach you
 
 - How to run the [FCCAnalyses software](https://github.com/HEP-FCC/FCCAnalyses), using long-lived Heavy Neutral Leptons (HNLs) that decay to electrons and neutrinos as an example
@@ -24,6 +28,8 @@ Tutorial for getting started studying long-lived particles (LLPs) at the FCC-ee
   ```
   and then follow the **Getting started** directions explained in the README. In these **Getting started** directions, you will run a `cmake .. -DCMAKE_INSTALL_PREFIX=../install` command to compile the code: if it doesn't get to 100%, your code is not compiled.
   
+*Note that every time you start a new session, you will need to source the setup file. The rest of the setup steps do not need to be repeated every time, unless you need to recompile.
+  
 3. I encourage you to read the rest of the FCCAnalyses README file as well: it explains how the FCCAnalyses software works in general. We will apply this software to the specific case of long-lived Heavy Neutral Leptons (HNLs).
   
 4. Then do `cd examples/FCCee/bsm/LLPs/DisplacedHNL/` to change to the long-lived HNL directory, where you will run the rest of this tutorial.
@@ -38,7 +44,7 @@ The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/a
 
 Notice that the rest of the `analysis_stage1.py` file computes the variables of interest. You can take a look here and see what is going on.
 
-To run this step, do:
+**To run this step, do:**
 ```
 fccanalysis run analysis_stage1.py
 ```
@@ -99,9 +105,9 @@ This second step will run over your "stage 1" output and apply selections (or cu
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py`. Open this file in github or in the terminal with your favorite editor and take a look. Notice the parameters that can be set, including the **procesList** and **cutList**. Notice the format for how you define a histogram.
   
-You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/`, nothing needs to be changed in `analysis_final.py`. 
+**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/`, nothing needs to be changed in `analysis_final.py`.**
   
-To run this step, do:
+**To run this step, do:**
 ```
 fccanalysis final analysis_final.py
 ```
@@ -114,7 +120,7 @@ The root file output of this step (histograms) will live in the `output_finalSel
 
 This final step makes jpg and/or pdf plots of the histograms you made in Step 2.
 
-To run this step, do:
+**To run this step, do:**
 ```
 fccanalysis plots analysis_plots.py
 ```
@@ -124,10 +130,11 @@ The output of this step (plots) will live in the `plots/` directory. Each subdir
 ## Questions for going deeper
   
 1. Why does this analysis apply the selections that it does?
-2. If you were to add additional variables for study in the long-lived HNL analysis, which would you try and how would you add them?
-3. How do you find what variables are available in FCCAnalyses::MCParticle? And in ReconstructedParticle?
-4. How do you access a variable pertaining to a specific gen electron in the event?
-5. How do you normalize the plots to 1? How do normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework?
+2. How do the distributions of variables change as different selections are applied? Why?
+3. If you were to add additional variables for study in the long-lived HNL analysis, which would you try and how would you add them?
+4. How do you find what variables are available in FCCAnalyses::MCParticle? And in ReconstructedParticle?
+5. How do you access a variable pertaining to a specific gen electron in the event?
+6. How do you normalize the plots to 1? How do normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework?
   
 ## Additional resources
 
