@@ -105,16 +105,73 @@ This second step will run over your "stage 1" output and apply selections (or cu
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py`. Open this file in github or in the terminal with your favorite editor and take a look. Notice the parameters that can be set, including the **procesList** and **cutList**. Notice the format for how you define a histogram.
   
-**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/`, nothing needs to be changed in `analysis_final.py`.**
+**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the others are quite big and perhaps take too much time.**
   
 **To run this step, do:**
 ```
 fccanalysis final analysis_final.py
 ```
 
+<details>
+  <summary>Click here to see what the log output of this step might look like:</summary>
+  
 
-The root file output of this step (histograms) will live in the `output_finalSel/` directory.
+  ```
+  $ fccanalysis final analysis_final.py
+===============args bin  Namespace(command='final', pathToAnalysisScript='analysis_final.py', eloglevel='kUnset')
+Warning in <TInterpreter::ReadRootmapFile>: class  edm4hep::ObjectID found in libedm4hepDict.so  is already in libedm4drDict.so 
+----> Load cxx analyzers from libFCCAnalyses... 
+args in mains code============================== Namespace(command='final', pathToAnalysisScript='analysis_final.py', eloglevel='kUnset')
+--------------loading analysis file   /afs/cern.ch/work/j/jalimena/FCCeeLLP_test/FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py
+----> file  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91.root   does not exist. Try if it is a directory as it was processed with batch
+----> open directory  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk0.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk1.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk10.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk11.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk12.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk13.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk14.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk15.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk16.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk17.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk18.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk19.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk2.root
+  ...
+processed events  {'p8_ee_Zee_ecm91': 10000000}
+events in ttree   {'p8_ee_Zee_ecm91': 10000000}
 
+---->  Running over process :  p8_ee_Zee_ecm91
+The variable <defineList> is optional in your analysis_final.py file, return empty dictonary
+----> Defining snapshots and histograms
+----> Evaluating...
+----> Done
+----> Cutflow
+       All events                                                      : 10000000
+       After selection selNone                                         : 10000000
+       After selection sel2RecoEle                                     : 7961732
+       After selection sel2RecoEle_vetoes                              : 6994080
+       After selection sel2RecoEle_vetoes_MissingEnergyGt10            : 32253
+       After selection sel2RecoEle_vetoes_MissingEnergyGt10_absD0Gt0p5 : 0
+----> Saving outputs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:08:47
+Events Processed/Second  :   18945
+Total Events Processed   :   10000000
+===================================================================
+  ```
+</details>
+  
+
+The root file output of this step (histograms) will live in the `output_finalSel/` directory. Open your output with root and check that you get histograms.
+
+<details>
+  <summary>Click here to see what the root file output of this step might look like:</summary>
+  
+</details>
+  
+  
 
 ## Step 3. Run `analysis_plots.py`: Make plots
 
