@@ -169,6 +169,8 @@ The root file output of this step (histograms) will live in the `output_finalSel
 <details>
   <summary>Click here to see what the root file output of this step might look like:</summary>
   
+  <img width="1410" alt="output_final_Zee_sel2RecoEle_vetoes_MissingEnergyGt10_histo" src="https://user-images.githubusercontent.com/5177191/195290459-a48f92d3-5068-4904-8c97-7f91f33aff91.png">
+
 </details>
   
   
