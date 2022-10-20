@@ -23,10 +23,12 @@ This tutorial is for anyone interested in working with the FCC software. It assu
 2. Do 
   ```
   bash
-  git clone https://github.com/HEP-FCC/FCCAnalyses
+  git clone git@github.com:FCC-LLP/FCCAnalyses.git
   cd FCCAnalyses/
   ```
-  and then follow the **Getting started** directions explained in the README. In these **Getting started** directions, you will run a `cmake .. -DCMAKE_INSTALL_PREFIX=../install` command to compile the code: if it doesn't get to 100%, your code is not compiled.
+Notice that I am having you clone the FCC-LLP version of the FCCAnalyses repository, since it contains a few new developments for this specific tutorial. However, it should be consistent with the main FCCAnalyses repository at https://github.com/HEP-FCC/FCCAnalyses
+
+Then follow the **Getting started** directions explained in the README. In these **Getting started** directions, you will run a `cmake .. -DCMAKE_INSTALL_PREFIX=../install` command to compile the code: if it doesn't get to 100%, your code is not compiled.
   
 *Note that every time you start a new session, you will need to source the setup file. The rest of the setup steps do not need to be repeated every time, unless you need to recompile.
   
