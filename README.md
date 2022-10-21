@@ -42,7 +42,7 @@ This step will run over previously created EDM4hep samples and create root files
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py`. Open this file in github or in the terminal with your favorite editor and take a look. Compare what you find there with the general description in the readme file (https://github.com/HEP-FCC/FCCAnalyses). Notice that lines 1-53 contain configuration parameters that you should consider changing for your situation.
 
-### Step 1 a:
+### Step 1 a (Run `analysis_stage1.py` over centrally-produced backgrounds):
 **Change the parameters in lines 1-53 of `analysis_stage1.py` such that you run a test job, where you run over a small fraction of the centrally-produced `p8_ee_Zee_ecm91` sample that uses the `spring2021` tag and the `IDEA` detector, and make the output go to a new local directory called `output_stage1/`. Notice which parameters in lines 1-53 need to be uncommented or commented out. Run this test locally, i.e. not in batch.**
 
 Notice that the rest of the `analysis_stage1.py` file computes the variables of interest. You can take a look here and see what is going on.
@@ -84,7 +84,7 @@ Reduction factor local   :   1.0
 </details>
   
   
-The root file output of this step (trees) will live in the `output_stage1/` directory. Open your output with root and check that you get a tree with filled branches.
+The root file output of this step (trees) will live in the `output_stage1/` directory. Open your background output with root and check that you get a tree with filled branches.
   
 <details>
   <summary>Click here to see what the root file output of this step might look like:</summary>
@@ -97,7 +97,7 @@ The root file output of this step (trees) will live in the `output_stage1/` dire
 Note that if you wanted to run over all of the background samples used in the long-lived HNL analysis, you would probably need to run in batch and put the output in eos or a similar space.  
   
   
-### Step 1 b:
+### Step 1 b (Run `analysis_stage1.py` over privately-produced signals):
 
 **Now change the parameters in lines 1-53 of `analysis_stage1.py` again to run over the privately-produced HNL signal samples, and make the output go to your local `output_stage1/` directory. Notice which parameters in lines 1-53 need to be uncommented or commented out. Run this test locally, i.e. not in batch (it shouldn't take long, as these samples are much smaller than the backgrounds).**
 
@@ -181,9 +181,12 @@ Reduction factor local   :   1.0
   ```
 </details>
   
+The root file output of this step (trees) will again live in the output_stage1/ directory. Open your signal output with root and check that you get a tree with filled branches.
+
+  
 ## Step 2. Run `analysis_final.py`: Apply selections
 
-This second step will run over your "stage 1" output and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
+This second step will run over the "stage 1" output (either yours or ones we have done previously) and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
 
  - **selNone** applies no selection at all
  - **sel2RecoEle** requires exactly two reconstructed electrons
@@ -193,7 +196,7 @@ This second step will run over your "stage 1" output and apply selections (or cu
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py`. Open this file in github or in the terminal with your favorite editor and take a look. Notice the parameters that can be set, including the **procesList** and **cutList**. Notice the format for how you define a histogram.
   
-**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the other backgrounds are quite big and perhaps take too much time. The signal HNL samples should be pretty quick.**
+**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger background samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the other backgrounds are quite big and perhaps take too much time. The stage 1 signal HNL samples in eos should be pretty quick to run.**
   
 **To run this step, do:**
 ```
@@ -211,21 +214,21 @@ Warning in <TInterpreter::ReadRootmapFile>: class  edm4hep::ObjectID found in li
 ----> Load cxx analyzers from libFCCAnalyses... 
 args in mains code============================== Namespace(command='final', pathToAnalysisScript='analysis_final.py', eloglevel='kUnset')
 --------------loading analysis file   /afs/cern.ch/work/j/jalimena/FCCeeLLP_test/FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py
-----> file  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91.root   does not exist. Try if it is a directory as it was processed with batch
-----> open directory  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk0.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk1.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk10.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk11.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk12.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk13.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk14.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk15.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk16.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk17.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk18.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk19.root
-  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/p8_ee_Zee_ecm91/chunk2.root
+----> file  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91.root   does not exist. Try if it is a directory as it was processed with batch
+----> open directory  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk0.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk1.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk10.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk11.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk12.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk13.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk14.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk15.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk16.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk17.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk18.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk19.root
+  ---->  /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/p8_ee_Zee_ecm91/chunk2.root
   ...
 processed events  {'p8_ee_Zee_ecm91': 10000000}
 events in ttree   {'p8_ee_Zee_ecm91': 10000000}
@@ -265,7 +268,7 @@ The root file output of this step (histograms) will live in the `output_finalSel
 
 ## Step 3. Run `analysis_plots.py`: Make plots
 
-This final step makes jpg and/or pdf plots of the histograms you made in Step 2.
+This final step makes jpg and/or pdf plots of the histograms made in Step 2 (either your histograms or ones we have done previously).
 
 **To run this step, do:**
 ```
