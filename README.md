@@ -196,7 +196,7 @@ This second step will run over the "stage 1" output (either yours or ones we hav
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py`. Open this file in github or in the terminal with your favorite editor and take a look. Notice the parameters that can be set, including the **procesList** and **cutList**. Notice the format for how you define a histogram.
   
-**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger background samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the other backgrounds are quite big and perhaps take too much time. The stage 1 signal HNL samples in eos should be pretty quick to run.**
+**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger background samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the other backgrounds are quite big and perhaps take too much time to run locally. The stage 1 signal HNL samples in eos should be pretty quick to run locally.**
   
 **To run this step, do:**
 ```
