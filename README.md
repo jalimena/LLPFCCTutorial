@@ -268,7 +268,7 @@ The root file output of this step (histograms) will live in the `output_finalSel
 
 ## Step 3. Run `analysis_plots.py`: Make plots
 
-This final step makes jpg and/or pdf plots of the histograms made in Step 2 (either your histograms or ones we have done previously).
+This final step makes jpg and/or pdf plots of the histograms you made in Step 2.
 
 **To run this step, do:**
 ```
