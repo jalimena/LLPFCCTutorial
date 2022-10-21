@@ -263,7 +263,15 @@ The root file output of this step (histograms) will live in the `output_finalSel
   <img width="1410" alt="output_final_Zee_sel2RecoEle_vetoes_MissingEnergyGt10_histo" src="https://user-images.githubusercontent.com/5177191/195290459-a48f92d3-5068-4904-8c97-7f91f33aff91.png">
 
 </details>
+
+We've recently implemented some new features in the `analysis_final.py` step, such that you can for example make latex tables for your cut flows. **See if you can figure out how to make a table to show the number of signal events we expect after each cut we apply, assuming 150 ab-1 of integrated luminosity at the FCC-ee, with a CME of 91 GeV. You could also make a table showing the cumulative efficiency in signal after each cut.**
   
+<details>
+  <summary>Click here to see if your tables looks like mine:</summary>
+  
+
+
+</details>
   
 
 ## Step 3. Run `analysis_plots.py`: Make plots
@@ -284,7 +292,7 @@ The output of this step (plots) will live in the `plots/` directory. Each subdir
 3. If you were to add additional variables for study in the long-lived HNL analysis, which would you try and how would you add them?
 4. How do you find what variables are available in FCCAnalyses::MCParticle? And in ReconstructedParticle?
 5. How do you access a variable pertaining to a specific gen electron in the event?
-6. How do you normalize the plots to 1? How do normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework?
+6. How do you normalize the plots to 1? How do normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework (for privately-produced samples and for centrally-produced ones)?
   
 ## Additional resources
 
