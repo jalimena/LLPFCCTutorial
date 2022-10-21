@@ -298,7 +298,7 @@ The output of this step (plots) will live in the `plots/` directory. Each subdir
 4. If you were to add additional variables for study in the long-lived HNL analysis, which would you try and how would you add them?
 5. How do you find what variables are available in FCCAnalyses::MCParticle? And in ReconstructedParticle?
 6. How do you access a variable pertaining to a specific gen electron in the event?
-7. How do you normalize the plots to 1? How do normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework (for privately-produced samples and for centrally-produced ones)?
+7. How do you normalize the plots to the expected number of events at a given integrated luminosity? Where are the cross sections defined in this framework (for privately-produced samples and for centrally-produced ones)?
   
 ## Additional resources
 
