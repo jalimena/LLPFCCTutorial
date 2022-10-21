@@ -291,5 +291,6 @@ The output of this step (plots) will live in the `plots/` directory. Each subdir
 - LLPs at the FCC-ee (Snowmass white paper): https://arxiv.org/abs/2203.05502
 - Juliette's presentation at the ECFA meeting at DESY (Oct 2022): https://indico.desy.de/event/33640/timetable/?view=standard#97-long-lived-particles-at-the
 - FCC code tutorial: https://hep-fcc.github.io/fcc-tutorials/software-basics/README.html
+- FCC tutorial at CERN (October 2022): https://indico.cern.ch/event/1182767/timetable/?view=standard
 - FCC-ee spring2021 samples: https://fcc-physics-events.web.cern.ch/fcc-physics-events/FCCee/spring2021/Delphesevents_IDEA.php
 
