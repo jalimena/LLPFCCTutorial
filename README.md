@@ -40,9 +40,10 @@ Then follow the **Getting started** directions explained in the README. In these
 
 This step will run over previously created EDM4hep samples and create root files with TTrees of interesting variables (gen and reco) for the long-lived HNL analysis.
 
-The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py`. Open this file in github or in the terminal with your favorite editor and take a look. Compare what you find there with the general description in the readme file (https://github.com/HEP-FCC/FCCAnalyses). Notice that lines 1-37 contain configuration parameters that you should consider changing for your situation.
+The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py`. Open this file in github or in the terminal with your favorite editor and take a look. Compare what you find there with the general description in the readme file (https://github.com/HEP-FCC/FCCAnalyses). Notice that lines 1-53 contain configuration parameters that you should consider changing for your situation.
 
-**Change the parameters in lines 1-37 of `analysis_stage1.py` such that you run a test job, where you run over a small fraction of the centrally-produced `p8_ee_Zee_ecm91` sample that uses the `spring2021` tag and the `IDEA` detector, and make the output go to a new directory called `output_stage1/`. Run this test locally, i.e. not in batch.**
+### Step 1 a:
+**Change the parameters in lines 1-53 of `analysis_stage1.py` such that you run a test job, where you run over a small fraction of the centrally-produced `p8_ee_Zee_ecm91` sample that uses the `spring2021` tag and the `IDEA` detector, and make the output go to a new local directory called `output_stage1/`. Notice which parameters in lines 1-53 need to be uncommented or commented out. Run this test locally, i.e. not in batch.**
 
 Notice that the rest of the `analysis_stage1.py` file computes the variables of interest. You can take a look here and see what is going on.
 
@@ -95,6 +96,91 @@ The root file output of this step (trees) will live in the `output_stage1/` dire
   
 Note that if you wanted to run over all of the background samples used in the long-lived HNL analysis, you would probably need to run in batch and put the output in eos or a similar space.  
   
+  
+### Step 1 b:
+
+**Now change the parameters in lines 1-53 of `analysis_stage1.py` again to run over the privately-produced HNL signal samples, and make the output go to your local `output_stage1/` directory. Notice which parameters in lines 1-53 need to be uncommented or commented out. Run this test locally, i.e. not in batch (it shouldn't take long, as these samples are much smaller than the backgrounds).**
+
+**To run this step, do:**
+```
+fccanalysis run analysis_stage1.py
+```
+
+<details>
+  <summary>Click here to see what the log output of this step might look like:</summary>
+  
+
+  ```
+  $ fccanalysis run analysis_stage1.py 
+----> Load cxx analyzers from libFCCAnalyses... 
+--------------loading analysis file   /afs/cern.ch/work/j/jalimena/FCCeeLLP/FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_stage1.py
+The variable <outputDirEos> is optional in your analysis.py file, return default empty string
+----> Running process eenu_30GeV_1p41e-6Ve with fraction=1, output=eenu_30GeV_1p41e-6Ve, chunks=1
+----> Running Locally
+----> Create dataframe object from files: 
+    /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/HNL_eenu_MadgraphPythiaDelphes/eenu_30GeV_1p41e-6Ve/HNL_eenu_30GeV_1p41e-6Ve_Delphes3_5_1_pre01.root
+----> nevents original=0  local=50000
+The variable <geometryFile> is optional in your analysys.py file, return default value empty string
+The variable <readoutName> is optional in your analysys.py file, return default value empty string
+----> Init done, about to run 50000 events on 4 CPUs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:00:45
+Events Processed/Second  :   1104
+Total Events Processed   :   50000
+Reduction factor local   :   1.0
+===================================================================
+ 
+ 
+----> Running process eenu_50GeV_1p41e-6Ve with fraction=1, output=eenu_50GeV_1p41e-6Ve, chunks=1
+----> Running Locally
+----> Create dataframe object from files: 
+    /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/HNL_eenu_MadgraphPythiaDelphes/eenu_50GeV_1p41e-6Ve/HNL_eenu_50GeV_1p41e-6Ve_Delphes3_5_1_pre01.root
+----> nevents original=0  local=50000
+The variable <geometryFile> is optional in your analysys.py file, return default value empty string
+The variable <readoutName> is optional in your analysys.py file, return default value empty string
+----> Init done, about to run 50000 events on 4 CPUs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:00:21
+Events Processed/Second  :   2369
+Total Events Processed   :   50000
+Reduction factor local   :   1.0
+===================================================================
+ 
+ 
+----> Running process eenu_70GeV_1p41e-6Ve with fraction=1, output=eenu_70GeV_1p41e-6Ve, chunks=1
+----> Running Locally
+----> Create dataframe object from files: 
+    /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/HNL_eenu_MadgraphPythiaDelphes/eenu_70GeV_1p41e-6Ve/HNL_eenu_70GeV_1p41e-6Ve_Delphes3_5_1_pre01.root
+----> nevents original=0  local=50000
+The variable <geometryFile> is optional in your analysys.py file, return default value empty string
+The variable <readoutName> is optional in your analysys.py file, return default value empty string
+----> Init done, about to run 50000 events on 4 CPUs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:00:21
+Events Processed/Second  :   2326
+Total Events Processed   :   50000
+Reduction factor local   :   1.0
+===================================================================
+ 
+ 
+----> Running process eenu_90GeV_1p41e-6Ve with fraction=1, output=eenu_90GeV_1p41e-6Ve, chunks=1
+----> Running Locally
+----> Create dataframe object from files: 
+    /eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/HNL_eenu_MadgraphPythiaDelphes/eenu_90GeV_1p41e-6Ve/HNL_eenu_90GeV_1p41e-6Ve_Delphes3_5_1_pre01.root
+----> nevents original=0  local=50000
+The variable <geometryFile> is optional in your analysys.py file, return default value empty string
+The variable <readoutName> is optional in your analysys.py file, return default value empty string
+----> Init done, about to run 50000 events on 4 CPUs
+==============================SUMMARY==============================
+Elapsed time (H:M:S)     :   00:00:22
+Events Processed/Second  :   2262
+Total Events Processed   :   50000
+Reduction factor local   :   1.0
+===================================================================
+
+  ```
+</details>
+  
 ## Step 2. Run `analysis_final.py`: Apply selections
 
 This second step will run over your "stage 1" output and apply selections (or cut sets) to the variables of interest. For each selection, a root file will be created containing histograms. We have set up 5 cut sets for the long-lived HNL analysis:
@@ -107,7 +193,7 @@ This second step will run over your "stage 1" output and apply selections (or cu
 
 The code for this step is in `FCCAnalyses/examples/FCCee/bsm/LLPs/DisplacedHNL/analysis_final.py`. Open this file in github or in the terminal with your favorite editor and take a look. Notice the parameters that can be set, including the **procesList** and **cutList**. Notice the format for how you define a histogram.
   
-**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the others are quite big and perhaps take too much time.**
+**You can run over the small Zee sample you made in Step 1, or you can run over larger samples that were previously produced. To run over the larger samples that are in `/eos/experiment/fcc/ee/analyses/case-studies/bsm/LLPs/HNLs/output_stage1/`, I suggest you do them one at a time (comment out the others in `processList` in `analysis_final.py`). The Zee and Ztautau samples will take about 10 min each, but the other backgrounds are quite big and perhaps take too much time. The signal HNL samples should be pretty quick.**
   
 **To run this step, do:**
 ```
